@@ -38,6 +38,7 @@ namespace Presentacion
             //asignamos los datos a la propiedad DataSources del ReportViewer, utilizando
             //un objeto del tipo ReportDataSource
             reporte.LocalReport.DataSources.Add(new ReportDataSource("DSSocios", socios));
+            reporte.SetDisplayMode(DisplayMode.PrintLayout);
             reporte.RefreshReport();
         }
     }
