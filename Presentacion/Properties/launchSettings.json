@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Presentacion": {
+      "commandName": "Project"
+    },
+    "Solo ejecución": {
+      "commandName": "Project"
+    }
+  }
+}
