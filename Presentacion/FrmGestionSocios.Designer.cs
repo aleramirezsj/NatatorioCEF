@@ -84,6 +84,7 @@ namespace Presentacion
             this.GridSocios.RowTemplate.Height = 25;
             this.GridSocios.Size = new System.Drawing.Size(549, 208);
             this.GridSocios.TabIndex = 2;
+            this.GridSocios.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridSocios_CellEnter);
             // 
             // BtnNuevo
             // 

@@ -1,4 +1,5 @@
-﻿using Presentacion.Modelos;
+﻿using Microsoft.EntityFrameworkCore;
+using Presentacion.Modelos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,12 +23,12 @@ namespace Presentacion
         private void ActualizarGrilla()
         {
             using DbNatatorioContext db = new DbNatatorioContext();
-            GridSocios.DataSource = db.Socios.ToList();
+            GridSocios.DataSource = db.Socios.Include(s=>s.Localidad).ToList();
         }
         private void ActualizarGrillaFiltrada()
         {
             using DbNatatorioContext db = new DbNatatorioContext();
-            GridSocios.DataSource = db.Socios.Where(s=>s.Apellido.Contains(TxtBusqueda.Text)).ToList();
+            GridSocios.DataSource = db.Socios.Include(s => s.Localidad).Where(s=>s.Apellido.Contains(TxtBusqueda.Text)||s.Nombre.Contains(TxtBusqueda.Text)||s.DNI.ToString().Contains(TxtBusqueda.Text)).ToList();
         }
 
         private void BtnSalir_Click(object sender, EventArgs e)
@@ -87,6 +88,14 @@ namespace Presentacion
         {
             var frmListadoDeSocios = new FrmListadoSocios();
             frmListadoDeSocios.ShowDialog();
+        }
+
+        private void GridSocios_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (GridSocios.Columns["SocioGaranteId"] != null)
+                GridSocios.Columns["SocioGaranteId"].Visible = false;
+            if (GridSocios.Columns["LocalidadId"] != null)
+                GridSocios.Columns["LocalidadId"].Visible = false;
         }
     }
 }

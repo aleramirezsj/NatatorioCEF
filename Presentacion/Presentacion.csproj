@@ -7,6 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20211012181140_AgregamosDireccionYSocioGarante2.cs" />
+    <Compile Remove="Migrations\20211012181140_AgregamosDireccionYSocioGarante2.Designer.cs" />
+    <Compile Remove="Migrations\20211012182139_AgregamosDireccionYSocioGarante2.cs" />
+    <Compile Remove="Migrations\20211012182139_AgregamosDireccionYSocioGarante2.Designer.cs" />
+    <Compile Remove="Migrations\20211012182628_AgregamosDireccionYSocioGarante2.cs" />
+    <Compile Remove="Migrations\20211012182628_AgregamosDireccionYSocioGarante2.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Reportes\RptListadoDeSocios.rdlc" />
   </ItemGroup>
 

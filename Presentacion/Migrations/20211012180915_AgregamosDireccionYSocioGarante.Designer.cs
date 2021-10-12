@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Presentacion.Modelos;
 
 namespace Presentacion.Migrations
 {
     [DbContext(typeof(DbNatatorioContext))]
-    partial class DbNatatorioContextModelSnapshot : ModelSnapshot
+    [Migration("20211012180915_AgregamosDireccionYSocioGarante")]
+    partial class AgregamosDireccionYSocioGarante
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,44 +55,6 @@ namespace Presentacion.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Presentacion.Modelos.Localidad", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Nombre")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Localidades");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Nombre = "San Justo"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Nombre = "Gobernador Crespo"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Nombre = "Llambi Campbell"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Nombre = "Ramayón"
-                        });
-                });
-
             modelBuilder.Entity("Presentacion.Modelos.Socio", b =>
                 {
                     b.Property<int>("Id")
@@ -108,9 +72,6 @@ namespace Presentacion.Migrations
                     b.Property<string>("Dirección")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("LocalidadId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -118,12 +79,13 @@ namespace Presentacion.Migrations
                     b.Property<int?>("SocioGaranteId")
                         .HasColumnType("int");
 
+                    b.Property<int>("SocioId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Teléfono")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("LocalidadId");
 
                     b.HasIndex("SocioGaranteId");
 
@@ -135,10 +97,8 @@ namespace Presentacion.Migrations
                             Id = 1,
                             Apellido = "Perez",
                             DNI = 12121212,
-                            Dirección = "9 de julio 1232",
-                            LocalidadId = 1,
                             Nombre = "Juan",
-                            SocioGaranteId = 1,
+                            SocioId = 0,
                             Teléfono = "34343434"
                         },
                         new
@@ -146,10 +106,8 @@ namespace Presentacion.Migrations
                             Id = 2,
                             Apellido = "Gomez",
                             DNI = 12787878,
-                            Dirección = "Pedro Millán 1212",
-                            LocalidadId = 1,
                             Nombre = "Adrian",
-                            SocioGaranteId = 1,
+                            SocioId = 0,
                             Teléfono = "98989898"
                         },
                         new
@@ -157,24 +115,17 @@ namespace Presentacion.Migrations
                             Id = 3,
                             Apellido = "Rodriguez",
                             DNI = 56565656,
-                            Dirección = "San Martin 2435",
-                            LocalidadId = 2,
                             Nombre = "Pedro",
-                            SocioGaranteId = 1,
+                            SocioId = 0,
                             Teléfono = "45454545"
                         });
                 });
 
             modelBuilder.Entity("Presentacion.Modelos.Socio", b =>
                 {
-                    b.HasOne("Presentacion.Modelos.Localidad", "Localidad")
-                        .WithMany()
-                        .HasForeignKey("LocalidadId");
-
                     b.HasOne("Presentacion.Modelos.Socio", "SocioGarante")
                         .WithMany()
-                        .HasForeignKey("SocioGaranteId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .HasForeignKey("SocioGaranteId");
                 });
 #pragma warning restore 612, 618
         }
