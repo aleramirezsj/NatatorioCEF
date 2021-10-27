@@ -48,7 +48,7 @@ namespace Presentacion
             // 
             // PnlFondo
             // 
-            this.PnlFondo.BackgroundImage = global::Presentacion.Properties.Resources.natatorio;
+            this.PnlFondo.BackgroundImage = global::NatatorioCEF.Properties.Resources.natatorio;
             this.PnlFondo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PnlFondo.Location = new System.Drawing.Point(12, 48);
             this.PnlFondo.Name = "PnlFondo";

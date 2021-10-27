@@ -32,12 +32,12 @@ namespace Presentacion
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.principalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sociosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cobradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirDelSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.cobradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -68,6 +68,13 @@ namespace Presentacion
             this.sociosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sociosToolStripMenuItem.Text = "Socios";
             this.sociosToolStripMenuItem.Click += new System.EventHandler(this.sociosToolStripMenuItem_Click);
+            // 
+            // cobradoresToolStripMenuItem
+            // 
+            this.cobradoresToolStripMenuItem.Name = "cobradoresToolStripMenuItem";
+            this.cobradoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cobradoresToolStripMenuItem.Text = "Cobradores";
+            this.cobradoresToolStripMenuItem.Click += new System.EventHandler(this.cobradoresToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
@@ -101,7 +108,7 @@ namespace Presentacion
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Presentacion.Properties.Resources.encabezado;
+            this.pictureBox1.Image = global::NatatorioCEF.Properties.Resources.encabezado;
             this.pictureBox1.Location = new System.Drawing.Point(679, 27);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(145, 140);
@@ -109,17 +116,11 @@ namespace Presentacion
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // cobradoresToolStripMenuItem
-            // 
-            this.cobradoresToolStripMenuItem.Name = "cobradoresToolStripMenuItem";
-            this.cobradoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cobradoresToolStripMenuItem.Text = "Cobradores";
-            // 
             // FrmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Presentacion.Properties.Resources._1Q0IeFO;
+            this.BackgroundImage = global::NatatorioCEF.Properties.Resources._1Q0IeFO;
             this.ClientSize = new System.Drawing.Size(836, 450);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);

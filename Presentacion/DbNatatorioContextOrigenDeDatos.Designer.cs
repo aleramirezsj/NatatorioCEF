@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace Presentacion {
+namespace NatatorioCEF {
     
     
     /// <summary>
@@ -1129,7 +1129,7 @@ namespace Presentacion {
         }
     }
 }
-namespace Presentacion.DbNatatorioContextOrigenDeDatosTableAdapters {
+namespace NatatorioCEF.DbNatatorioContextOrigenDeDatosTableAdapters {
     
     
     /// <summary>

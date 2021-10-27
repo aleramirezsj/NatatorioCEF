@@ -1,7 +1,7 @@
 ﻿
 namespace Presentacion
 {
-    partial class FrmGestionSocios
+    partial class FrmGestionCobradores
     {
         /// <summary>
         /// Required designer variable.
@@ -32,7 +32,7 @@ namespace Presentacion
             this.LblSocios = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.PbxImagenSocios = new System.Windows.Forms.PictureBox();
-            this.GridSocios = new System.Windows.Forms.DataGridView();
+            this.GridLista = new System.Windows.Forms.DataGridView();
             this.BtnNuevo = new System.Windows.Forms.Button();
             this.BtnModificar = new System.Windows.Forms.Button();
             this.BtnEliminar = new System.Windows.Forms.Button();
@@ -42,7 +42,7 @@ namespace Presentacion
             this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbxImagenSocios)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GridSocios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GridLista)).BeginInit();
             this.SuspendLayout();
             // 
             // LblSocios
@@ -52,9 +52,9 @@ namespace Presentacion
             this.LblSocios.ForeColor = System.Drawing.Color.Purple;
             this.LblSocios.Location = new System.Drawing.Point(88, 4);
             this.LblSocios.Name = "LblSocios";
-            this.LblSocios.Size = new System.Drawing.Size(112, 45);
+            this.LblSocios.Size = new System.Drawing.Size(190, 45);
             this.LblSocios.TabIndex = 0;
-            this.LblSocios.Text = "Socios";
+            this.LblSocios.Text = "Cobradores";
             // 
             // panel1
             // 
@@ -68,7 +68,7 @@ namespace Presentacion
             // 
             // PbxImagenSocios
             // 
-            this.PbxImagenSocios.Image = global::Presentacion.Properties.Resources.animado1;
+            this.PbxImagenSocios.Image = global::NatatorioCEF.Properties.Resources.animado1;
             this.PbxImagenSocios.Location = new System.Drawing.Point(24, 4);
             this.PbxImagenSocios.Name = "PbxImagenSocios";
             this.PbxImagenSocios.Size = new System.Drawing.Size(58, 50);
@@ -76,15 +76,17 @@ namespace Presentacion
             this.PbxImagenSocios.TabIndex = 1;
             this.PbxImagenSocios.TabStop = false;
             // 
-            // GridSocios
+            // GridLista
             // 
-            this.GridSocios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridSocios.Location = new System.Drawing.Point(72, 94);
-            this.GridSocios.Name = "GridSocios";
-            this.GridSocios.RowTemplate.Height = 25;
-            this.GridSocios.Size = new System.Drawing.Size(549, 208);
-            this.GridSocios.TabIndex = 2;
-            this.GridSocios.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridSocios_CellEnter);
+            this.GridLista.AllowUserToOrderColumns = true;
+            this.GridLista.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.GridLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GridLista.Location = new System.Drawing.Point(72, 94);
+            this.GridLista.Name = "GridLista";
+            this.GridLista.RowTemplate.Height = 25;
+            this.GridLista.Size = new System.Drawing.Size(549, 208);
+            this.GridLista.TabIndex = 2;
+            this.GridLista.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridSocios_CellEnter);
             // 
             // BtnNuevo
             // 
@@ -153,7 +155,7 @@ namespace Presentacion
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // FrmGestionSocios
+            // FrmGestionCobradores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -165,15 +167,15 @@ namespace Presentacion
             this.Controls.Add(this.BtnEliminar);
             this.Controls.Add(this.BtnModificar);
             this.Controls.Add(this.BtnNuevo);
-            this.Controls.Add(this.GridSocios);
+            this.Controls.Add(this.GridLista);
             this.Controls.Add(this.panel1);
-            this.Name = "FrmGestionSocios";
+            this.Name = "FrmGestionCobradores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Socios Natatorio";
+            this.Text = "Cobradores";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbxImagenSocios)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GridSocios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GridLista)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,7 +186,7 @@ namespace Presentacion
         private System.Windows.Forms.Label LblSocios;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox PbxImagenSocios;
-        private System.Windows.Forms.DataGridView GridSocios;
+        private System.Windows.Forms.DataGridView GridLista;
         private System.Windows.Forms.Button BtnNuevo;
         private System.Windows.Forms.Button BtnModificar;
         private System.Windows.Forms.Button BtnEliminar;

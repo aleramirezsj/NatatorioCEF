@@ -34,5 +34,11 @@ namespace Presentacion
             FrmGestionSocios frmGestionSocios = new FrmGestionSocios();
             frmGestionSocios.ShowDialog();
         }
+
+        private void cobradoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGestionCobradores frmGestionCobradores = new FrmGestionCobradores();
+            frmGestionCobradores.ShowDialog();
+        }
     }
 }
