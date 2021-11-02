@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NatatorioCEF.Modelos;
+using NatatorioCEF.Utils;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -42,6 +44,12 @@ namespace Presentacion.Modelos
                 new Localidad { Id = 4, Nombre = "Ramayón" }
            );
             #endregion
+            #region Carga de Usuarios
+            modelBuilder.Entity<Usuario>().HasData(
+                new Usuario { Id = 1, Nombre = "Administrador", User="admin",Password=Helper.ObtenerHashSha256("1234"),TipoUsuario=TipoUsuarioEnum.Administrador },
+                new Usuario { Id=2, Nombre="empleado", User="empleado", Password=Helper.ObtenerHashSha256("1234"),TipoUsuario=TipoUsuarioEnum.Empleado}
+           );
+            #endregion
 
             modelBuilder.Entity<Socio>()
             .HasOne(p => p.SocioGarante)
@@ -51,6 +59,8 @@ namespace Presentacion.Modelos
         public DbSet<Socio> Socios { get; set; }
         public DbSet<Cobrador> Cobradores { get; set; }
         public DbSet<Localidad> Localidades { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
+
 
         public DbNatatorioContext()
         {

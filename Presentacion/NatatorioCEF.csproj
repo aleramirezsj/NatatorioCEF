@@ -49,10 +49,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>DbNatatorioContextOrigenDeDatos.xsd</DependentUpon>
     </Compile>
+    <Compile Update="Presentacion\FrmGestionUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Presentacion\FrmGestionCobradores.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Presentacion\FrmListadoCobradores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Presentacion\FrmNuevoEditarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Presentacion\FrmNuevoEditarCobrador.cs">

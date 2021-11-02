@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NatatorioCEF.Modelos;
+using NatatorioCEF.Presentation;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,7 @@ namespace Presentacion
 {
     public partial class FrmMenuPrincipal : Form
     {
+        public static Usuario UsuarioLogueado;
         public FrmMenuPrincipal()
         {
             InitializeComponent();
@@ -39,6 +42,27 @@ namespace Presentacion
         {
             FrmGestionCobradores frmGestionCobradores = new FrmGestionCobradores();
             frmGestionCobradores.ShowDialog();
+        }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGestionUsuarios frmGestionUsuarios = new FrmGestionUsuarios();
+            frmGestionUsuarios.ShowDialog();
+        }
+
+        private void FrmMenuPrincipal_Activated(object sender, EventArgs e)
+        {
+            if (UsuarioLogueado==null)
+            {
+                FrmLogin frmLogin = new FrmLogin();
+                frmLogin.ShowDialog();
+                if (UsuarioLogueado == null)
+                    Application.Exit();
+                else
+                {
+                    usuariosToolStripMenuItem.Enabled = UsuarioLogueado.TipoUsuario == TipoUsuarioEnum.Administrador;
+                }
+            }
         }
     }
 }

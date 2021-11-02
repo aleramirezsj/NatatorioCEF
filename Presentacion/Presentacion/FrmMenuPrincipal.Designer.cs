@@ -33,6 +33,7 @@ namespace Presentacion
             this.principalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sociosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cobradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirDelSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,7 +58,8 @@ namespace Presentacion
             // 
             this.principalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sociosToolStripMenuItem,
-            this.cobradoresToolStripMenuItem});
+            this.cobradoresToolStripMenuItem,
+            this.usuariosToolStripMenuItem});
             this.principalToolStripMenuItem.Name = "principalToolStripMenuItem";
             this.principalToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.principalToolStripMenuItem.Text = "Principal";
@@ -75,6 +77,13 @@ namespace Presentacion
             this.cobradoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cobradoresToolStripMenuItem.Text = "Cobradores";
             this.cobradoresToolStripMenuItem.Click += new System.EventHandler(this.cobradoresToolStripMenuItem_Click);
+            // 
+            // usuariosToolStripMenuItem
+            // 
+            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usuariosToolStripMenuItem.Text = "Usuarios";
+            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
@@ -128,6 +137,7 @@ namespace Presentacion
             this.Name = "FrmMenuPrincipal";
             this.Text = "Natatorio CEF : 2do año TSDS ISP20 -- San Justo - Santa Fe";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Activated += new System.EventHandler(this.FrmMenuPrincipal_Activated);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -147,6 +157,7 @@ namespace Presentacion
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem cobradoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
     }
 }
 
