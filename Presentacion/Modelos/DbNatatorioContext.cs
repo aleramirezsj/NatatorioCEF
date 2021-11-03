@@ -60,6 +60,7 @@ namespace Presentacion.Modelos
         public DbSet<Cobrador> Cobradores { get; set; }
         public DbSet<Localidad> Localidades { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Cuota> Cuotas { get; set; }
 
 
         public DbNatatorioContext()

@@ -48,7 +48,6 @@ namespace Presentacion
             TxtUsuario.Text = usuario.User;
             TxtContraseña.Text = usuario.Password;
             CboTipoUsuario.SelectedItem = usuario.TipoUsuario;
-            
         }
 
 

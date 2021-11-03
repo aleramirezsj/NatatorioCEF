@@ -39,6 +39,7 @@ namespace Presentacion
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.generaciónDeCuotasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -59,7 +60,8 @@ namespace Presentacion
             this.principalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sociosToolStripMenuItem,
             this.cobradoresToolStripMenuItem,
-            this.usuariosToolStripMenuItem});
+            this.usuariosToolStripMenuItem,
+            this.generaciónDeCuotasToolStripMenuItem});
             this.principalToolStripMenuItem.Name = "principalToolStripMenuItem";
             this.principalToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.principalToolStripMenuItem.Text = "Principal";
@@ -67,21 +69,21 @@ namespace Presentacion
             // sociosToolStripMenuItem
             // 
             this.sociosToolStripMenuItem.Name = "sociosToolStripMenuItem";
-            this.sociosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sociosToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.sociosToolStripMenuItem.Text = "Socios";
             this.sociosToolStripMenuItem.Click += new System.EventHandler(this.sociosToolStripMenuItem_Click);
             // 
             // cobradoresToolStripMenuItem
             // 
             this.cobradoresToolStripMenuItem.Name = "cobradoresToolStripMenuItem";
-            this.cobradoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cobradoresToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.cobradoresToolStripMenuItem.Text = "Cobradores";
             this.cobradoresToolStripMenuItem.Click += new System.EventHandler(this.cobradoresToolStripMenuItem_Click);
             // 
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
@@ -125,6 +127,13 @@ namespace Presentacion
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // generaciónDeCuotasToolStripMenuItem
+            // 
+            this.generaciónDeCuotasToolStripMenuItem.Name = "generaciónDeCuotasToolStripMenuItem";
+            this.generaciónDeCuotasToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.generaciónDeCuotasToolStripMenuItem.Text = "Generación de cuotas";
+            this.generaciónDeCuotasToolStripMenuItem.Click += new System.EventHandler(this.generaciónDeCuotasToolStripMenuItem_Click);
+            // 
             // FrmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -158,6 +167,7 @@ namespace Presentacion
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem cobradoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem generaciónDeCuotasToolStripMenuItem;
     }
 }
 

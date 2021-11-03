@@ -1,3 +1,4 @@
+using NatatorioCEF.Presentacion;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace Presentacion
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //probando colocar cambios
-            Application.Run(new FrmSplash());
+            Application.Run(new FrmGeneracionCuotas());
         }
     }
 }

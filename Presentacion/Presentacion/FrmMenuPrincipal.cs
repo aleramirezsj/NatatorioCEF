@@ -1,4 +1,5 @@
 ﻿using NatatorioCEF.Modelos;
+using NatatorioCEF.Presentacion;
 using NatatorioCEF.Presentation;
 using System;
 using System.Collections.Generic;
@@ -63,6 +64,12 @@ namespace Presentacion
                     usuariosToolStripMenuItem.Enabled = UsuarioLogueado.TipoUsuario == TipoUsuarioEnum.Administrador;
                 }
             }
+        }
+
+        private void generaciónDeCuotasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGeneracionCuotas frmGeneracionCuotas = new FrmGeneracionCuotas();
+            frmGeneracionCuotas.ShowDialog();
         }
     }
 }
