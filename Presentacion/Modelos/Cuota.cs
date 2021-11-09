@@ -12,7 +12,7 @@ namespace NatatorioCEF.Modelos
         public int Año { get; set; }
         public float Importe { get; set; }
         public DateTime Vencimiento { get; set; }
-        public DateTime FechaPago { get; set; }
+        public DateTime? FechaPago { get; set; }
         public float Recargo { get; set; }
         public float Cobrado { get; set; }
         public int? CobradorId { get; set; }

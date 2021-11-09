@@ -42,15 +42,15 @@ namespace NatatorioCEF.Presentacion
             this.DtpVencimiento = new System.Windows.Forms.DateTimePicker();
             this.NudRecargoMora = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TxtSocioBuscado = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.GridCuotas = new System.Windows.Forms.DataGridView();
             this.BtnGenerarCuotas = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbxImagenSocios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NudMontoCuota)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NudRecargoMora)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GridCuotas)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -60,7 +60,7 @@ namespace NatatorioCEF.Presentacion
             this.panel1.Controls.Add(this.LblSocios);
             this.panel1.Location = new System.Drawing.Point(25, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(754, 62);
+            this.panel1.Size = new System.Drawing.Size(840, 62);
             this.panel1.TabIndex = 2;
             // 
             // PbxImagenSocios
@@ -93,6 +93,7 @@ namespace NatatorioCEF.Presentacion
             this.CboAño.Name = "CboAño";
             this.CboAño.Size = new System.Drawing.Size(113, 29);
             this.CboAño.TabIndex = 3;
+            this.CboAño.SelectedIndexChanged += new System.EventHandler(this.CboAño_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -123,6 +124,7 @@ namespace NatatorioCEF.Presentacion
             this.CboMes.Name = "CboMes";
             this.CboMes.Size = new System.Drawing.Size(129, 29);
             this.CboMes.TabIndex = 5;
+            this.CboMes.SelectedIndexChanged += new System.EventHandler(this.CboMes_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -146,6 +148,7 @@ namespace NatatorioCEF.Presentacion
             this.NudMontoCuota.Name = "NudMontoCuota";
             this.NudMontoCuota.Size = new System.Drawing.Size(120, 23);
             this.NudMontoCuota.TabIndex = 8;
+            this.NudMontoCuota.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label4
             // 
@@ -177,6 +180,7 @@ namespace NatatorioCEF.Presentacion
             this.NudRecargoMora.Name = "NudRecargoMora";
             this.NudRecargoMora.Size = new System.Drawing.Size(120, 23);
             this.NudRecargoMora.TabIndex = 12;
+            this.NudRecargoMora.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label5
             // 
@@ -188,13 +192,14 @@ namespace NatatorioCEF.Presentacion
             this.label5.TabIndex = 11;
             this.label5.Text = "Recargo por mora:";
             // 
-            // textBox1
+            // TxtSocioBuscado
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(564, 83);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(215, 29);
-            this.textBox1.TabIndex = 13;
+            this.TxtSocioBuscado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TxtSocioBuscado.Location = new System.Drawing.Point(564, 83);
+            this.TxtSocioBuscado.Name = "TxtSocioBuscado";
+            this.TxtSocioBuscado.Size = new System.Drawing.Size(301, 29);
+            this.TxtSocioBuscado.TabIndex = 13;
+            this.TxtSocioBuscado.TextChanged += new System.EventHandler(this.TxtSocioBuscado_TextChanged);
             // 
             // label6
             // 
@@ -206,14 +211,16 @@ namespace NatatorioCEF.Presentacion
             this.label6.TabIndex = 14;
             this.label6.Text = "Buscar socio";
             // 
-            // dataGridView1
+            // GridCuotas
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(425, 118);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(354, 261);
-            this.dataGridView1.TabIndex = 15;
+            this.GridCuotas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.GridCuotas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GridCuotas.Location = new System.Drawing.Point(425, 118);
+            this.GridCuotas.Name = "GridCuotas";
+            this.GridCuotas.RowTemplate.Height = 25;
+            this.GridCuotas.Size = new System.Drawing.Size(440, 261);
+            this.GridCuotas.TabIndex = 15;
+            this.GridCuotas.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridCuotas_CellEnter);
             // 
             // BtnGenerarCuotas
             // 
@@ -230,11 +237,11 @@ namespace NatatorioCEF.Presentacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 388);
+            this.ClientSize = new System.Drawing.Size(877, 388);
             this.Controls.Add(this.BtnGenerarCuotas);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.GridCuotas);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TxtSocioBuscado);
             this.Controls.Add(this.NudRecargoMora);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.DtpVencimiento);
@@ -247,13 +254,14 @@ namespace NatatorioCEF.Presentacion
             this.Controls.Add(this.CboAño);
             this.Controls.Add(this.panel1);
             this.Name = "FrmGeneracionCuotas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Generación de cuotas societarias";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbxImagenSocios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NudMontoCuota)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NudRecargoMora)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GridCuotas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -274,9 +282,9 @@ namespace NatatorioCEF.Presentacion
         private System.Windows.Forms.DateTimePicker DtpVencimiento;
         private System.Windows.Forms.NumericUpDown NudRecargoMora;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TxtSocioBuscado;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView GridCuotas;
         private System.Windows.Forms.Button BtnGenerarCuotas;
     }
 }
