@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NatatorioCEF.Modelos;
+using Presentacion;
 using Presentacion.Modelos;
 using System;
 using System.Collections.Generic;
@@ -147,6 +148,25 @@ namespace NatatorioCEF.Presentacion
         private void TxtSocioBuscado_TextChanged(object sender, EventArgs e)
         {
             CargarGrillaFiltrada();
+        }
+
+        private void BtnImprimirCuotas_Click(object sender, EventArgs e)
+        {
+            FrmListadoCuotas frmListadoCuotas = new FrmListadoCuotas(int.Parse(CboAño.Text), CboMes.SelectedIndex + 1);
+            frmListadoCuotas.ShowDialog();
+        }
+
+        private void BtnImprimirCuota_Click(object sender, EventArgs e)
+        {
+            if (GridCuotas.Rows.Count > 0)
+            {
+                FrmListadoCuotas frmListadoCuotas = new FrmListadoCuotas((int)GridCuotas.CurrentRow.Cells[0].Value);
+                frmListadoCuotas.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No existen cuotas para el período seleccionado");
+            }
         }
     }
 }

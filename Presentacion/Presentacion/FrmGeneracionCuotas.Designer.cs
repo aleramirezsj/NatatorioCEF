@@ -46,6 +46,8 @@ namespace NatatorioCEF.Presentacion
             this.label6 = new System.Windows.Forms.Label();
             this.GridCuotas = new System.Windows.Forms.DataGridView();
             this.BtnGenerarCuotas = new System.Windows.Forms.Button();
+            this.BtnImprimirCuotas = new System.Windows.Forms.Button();
+            this.BtnImprimirCuota = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbxImagenSocios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NudMontoCuota)).BeginInit();
@@ -233,11 +235,35 @@ namespace NatatorioCEF.Presentacion
             this.BtnGenerarCuotas.UseVisualStyleBackColor = true;
             this.BtnGenerarCuotas.Click += new System.EventHandler(this.BtnGenerarCuotas_Click);
             // 
+            // BtnImprimirCuotas
+            // 
+            this.BtnImprimirCuotas.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BtnImprimirCuotas.Location = new System.Drawing.Point(425, 385);
+            this.BtnImprimirCuotas.Name = "BtnImprimirCuotas";
+            this.BtnImprimirCuotas.Size = new System.Drawing.Size(221, 27);
+            this.BtnImprimirCuotas.TabIndex = 17;
+            this.BtnImprimirCuotas.Text = "Imprimir cuotas del período";
+            this.BtnImprimirCuotas.UseVisualStyleBackColor = true;
+            this.BtnImprimirCuotas.Click += new System.EventHandler(this.BtnImprimirCuotas_Click);
+            // 
+            // BtnImprimirCuota
+            // 
+            this.BtnImprimirCuota.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BtnImprimirCuota.Location = new System.Drawing.Point(652, 385);
+            this.BtnImprimirCuota.Name = "BtnImprimirCuota";
+            this.BtnImprimirCuota.Size = new System.Drawing.Size(213, 27);
+            this.BtnImprimirCuota.TabIndex = 18;
+            this.BtnImprimirCuota.Text = "Imprimir cuota seleccionada";
+            this.BtnImprimirCuota.UseVisualStyleBackColor = true;
+            this.BtnImprimirCuota.Click += new System.EventHandler(this.BtnImprimirCuota_Click);
+            // 
             // FrmGeneracionCuotas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(877, 388);
+            this.ClientSize = new System.Drawing.Size(877, 423);
+            this.Controls.Add(this.BtnImprimirCuota);
+            this.Controls.Add(this.BtnImprimirCuotas);
             this.Controls.Add(this.BtnGenerarCuotas);
             this.Controls.Add(this.GridCuotas);
             this.Controls.Add(this.label6);
@@ -286,5 +312,7 @@ namespace NatatorioCEF.Presentacion
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView GridCuotas;
         private System.Windows.Forms.Button BtnGenerarCuotas;
+        private System.Windows.Forms.Button BtnImprimirCuotas;
+        private System.Windows.Forms.Button BtnImprimirCuota;
     }
 }

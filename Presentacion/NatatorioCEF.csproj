@@ -16,12 +16,24 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Imágenes\logoclub.png" />
+    <None Remove="Imágenes\natatorio.jpg" />
     <None Remove="Reportes\RptListadoDeCobradores.rdlc" />
+    <None Remove="Reportes\RptListadoDeCuotasPeriodo.rdlc" />
     <None Remove="Reportes\RptListadoDeSocios.rdlc" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Imágenes\logoclub.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Imágenes\natatorio.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RptListadoDeCobradores.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RptListadoDeCuotasPeriodo.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RptListadoDeSocios.rdlc">
@@ -56,6 +68,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Presentacion\FrmListadoCobradores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Presentacion\FrmListadoCuotas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Presentacion\FrmNuevoEditarUsuario.cs">
