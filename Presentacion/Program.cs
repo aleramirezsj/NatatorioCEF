@@ -19,7 +19,7 @@ namespace Presentacion
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //probando colocar cambios
-            Application.Run(new FrmGeneracionCuotas());
+            Application.Run(new FrmMenuPrincipal());
         }
     }
 }

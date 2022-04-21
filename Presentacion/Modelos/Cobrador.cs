@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace Presentacion.Modelos
@@ -12,5 +13,11 @@ namespace Presentacion.Modelos
         public string Nombre { get; set; }
         [Required]
         public string Apellido { get; set; }
+        [NotMapped]
+        public string NombreCompleto
+        {
+            get { return Nombre+" "+Apellido; }
+        }
+
     }
 }

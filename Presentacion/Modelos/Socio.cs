@@ -12,6 +12,7 @@ namespace Presentacion.Modelos
         public string Nombre { get; set; }
         [Required]
         public string Apellido { get; set; }
+          
         public int DNI { get; set; }
         public string? Teléfono { get; set; }
         public string Dirección { get; set; }
