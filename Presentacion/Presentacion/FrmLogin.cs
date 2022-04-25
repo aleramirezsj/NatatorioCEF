@@ -26,7 +26,7 @@ namespace NatatorioCEF.Presentation
 
         private void BtnAcceder_Click(object sender, EventArgs e)
         {
-            if (ValidarAcceso()) { 
+            if (ValidarAcceso(TxtUsuario.Text,TxtContraseña.Text)) { 
                 this.Close();
             }
             else
@@ -43,11 +43,15 @@ namespace NatatorioCEF.Presentation
                 }
             }
         }
-        private bool ValidarAcceso()
+        /// <summary>
+        /// Busca el usuario y contraseña ingresados por pantalla en la BBDD 
+        /// </summary>
+        /// <returns>retorna verdadero si lo encuentra y falso si no lo encuentra</returns>
+        private bool ValidarAcceso(string usuario,string contraseña)
         {
             using var db = new DbNatatorioContext();
-            string pass = Helper.ObtenerHashSha256(TxtContraseña.Text);
-            var listaUsuarios = db.Usuarios.Where(u => u.User.Equals(TxtUsuario.Text)).Where(u => u.Password.Equals(pass)).ToList();
+            string pass = Helper.ObtenerHashSha256(contraseña);
+            var listaUsuarios = db.Usuarios.Where(u => u.User.Equals(usuario)).Where(u => u.Password.Equals(pass)).ToList();
             //MessageBox.Show(listaUsuarios.Count.ToString());
             if (listaUsuarios.Count > 0)
             {

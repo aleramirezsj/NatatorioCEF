@@ -169,10 +169,11 @@ namespace Presentacion
             this.Name = "FrmAcercaDe";
             this.Padding = new System.Windows.Forms.Padding(10);
             this.ShowIcon = false;
-            this.ShowInTaskbar = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Acerca de Natatorio CEF";
             this.Activated += new System.EventHandler(this.FrmAcercaDe_Activated);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmAcercaDe_FormClosing);
             this.tableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();

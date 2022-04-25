@@ -11,9 +11,12 @@ namespace Presentacion
 {
     partial class FrmAcercaDe : Form
     {
+        private static int instancias;
         public FrmAcercaDe()
         {
+            instancias++;
             InitializeComponent();
+            Text += " : Instancia " + instancias;
         }
 
         #region Descriptores de acceso de atributos de ensamblado
@@ -111,11 +114,16 @@ namespace Presentacion
             //};
             //timer.Start();
         }
+
+        private void FrmAcercaDe_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MessageBox.Show("Cerrando formulario");
+        }
         //private static Task HandleTimer(System.Timers.Timer timer)
         //{
         //    //this.Close();
-            
-               
+
+
         //}
     }
 }

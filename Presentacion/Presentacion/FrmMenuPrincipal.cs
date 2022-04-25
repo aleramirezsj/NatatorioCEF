@@ -16,6 +16,7 @@ namespace Presentacion
     public partial class FrmMenuPrincipal : Form
     {
         public static Usuario UsuarioLogueado;
+        
         public FrmMenuPrincipal()
         {
             InitializeComponent();
@@ -28,8 +29,12 @@ namespace Presentacion
 
         private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
             FrmAcercaDe frmAcercaDe = new FrmAcercaDe();
-            frmAcercaDe.ShowDialog();
+            //mostramos el formulario usando el método ShowDialog() que lo muestra como Modal, es decir, colocándolo Always on top
+            //frmAcercaDe.ShowDialog();
+            //si queremos permitir la instanciación múltiple del formulario podemos llamar a el método Show()
+            frmAcercaDe.Show();
         }
 
         private void sociosToolStripMenuItem_Click(object sender, EventArgs e)
