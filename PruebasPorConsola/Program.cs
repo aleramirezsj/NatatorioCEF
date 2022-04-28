@@ -6,41 +6,23 @@ namespace PruebasPorConsola
     {
         static void Main(string[] args)
         {
-            var ejercicios = new Ejercicios(5,"ISP20");
+            MenuPantalla();
+        }
+
+        static void MenuPantalla()
+        {
+            Console.Clear();
+            Console.WriteLine("EJERCICIOS DE PROGRAMACIÓN");
+            Console.WriteLine("1-Ejercicio Loop de pares:");
+            Console.WriteLine("2-Ejercicio Loop de impares:");
+            Console.WriteLine("3-Ejercicio Sumattions:");
+            Console.WriteLine("4-Ejercicio Callbacks:");
+            Console.Write("Ingrese una opción");
         }
 
     }
-    public class Ejercicios
-    {
-        public Ejercicios(int parámetro)
-        {
-            LoopDePares(parámetro);
-        }
-        public Ejercicios(int parámetro,string palabra)
-        {
-            LoopDeImpares(parámetro,palabra);
-        }
-        private void LoopDePares(int número)
-        {
-            for (int i = 0; i <= 100; i++)
-            {
-                Console.WriteLine(i);
-                int suma = i + número;
-                if (suma %2==0)
-                    Console.WriteLine($"el número {suma} es par");
-                                    
-            }
-        }
-        private void LoopDeImpares(int número,string palabra)
-        {
-            for (int i = 0; i <= 100; i++)
-            {
-                Console.WriteLine(i);
-                int suma = i + número;
-                if (suma % 2 != 0)
-                    Console.WriteLine(palabra);
 
-            }
-        }
-    }
+
+
+
 }
