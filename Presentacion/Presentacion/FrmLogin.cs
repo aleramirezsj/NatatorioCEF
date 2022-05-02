@@ -36,7 +36,7 @@ namespace NatatorioCEF.Presentation
                     Application.Exit();
                 else
                 {
-                    MessageBox.Show("Error en usuario o contraseña ingresados");
+                    MessageBox.Show("Error en usuario o contraseña ingresados ");
                     TxtUsuario.Text = "";
                     TxtContraseña.Text = "";
                     TxtUsuario.Focus();
