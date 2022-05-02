@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NatatorioCEF.AdminData;
 using Presentacion.Modelos;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace Presentacion
 {
     public partial class FrmGestionCobradores : Form
     {
+        private RepositoryCobradores _repositoryCobradores = new RepositoryCobradores();
         public FrmGestionCobradores()
         {
             InitializeComponent();
@@ -22,8 +24,8 @@ namespace Presentacion
 
         private void ActualizarGrilla()
         {
-            using DbNatatorioContext db = new DbNatatorioContext();
-            GridLista.DataSource = db.Cobradores.ToList();
+
+            GridLista.DataSource = _repositoryCobradores.GetAll();
         }
         private void ActualizarGrillaFiltrada()
         {

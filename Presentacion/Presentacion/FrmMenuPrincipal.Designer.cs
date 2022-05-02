@@ -29,23 +29,28 @@ namespace Presentacion
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenuPrincipal));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.principalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sociosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cobradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.generaciónDeCuotasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirDelSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.generaciónDeCuotasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsbSocios = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.principalToolStripMenuItem,
             this.salirToolStripMenuItem});
@@ -87,6 +92,13 @@ namespace Presentacion
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
+            // generaciónDeCuotasToolStripMenuItem
+            // 
+            this.generaciónDeCuotasToolStripMenuItem.Name = "generaciónDeCuotasToolStripMenuItem";
+            this.generaciónDeCuotasToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.generaciónDeCuotasToolStripMenuItem.Text = "Generación de cuotas";
+            this.generaciónDeCuotasToolStripMenuItem.Click += new System.EventHandler(this.generaciónDeCuotasToolStripMenuItem_Click);
+            // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -127,12 +139,29 @@ namespace Presentacion
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // generaciónDeCuotasToolStripMenuItem
+            // toolStrip1
             // 
-            this.generaciónDeCuotasToolStripMenuItem.Name = "generaciónDeCuotasToolStripMenuItem";
-            this.generaciónDeCuotasToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.generaciónDeCuotasToolStripMenuItem.Text = "Generación de cuotas";
-            this.generaciónDeCuotasToolStripMenuItem.Click += new System.EventHandler(this.generaciónDeCuotasToolStripMenuItem_Click);
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbSocios});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(836, 49);
+            this.toolStrip1.TabIndex = 4;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // tsbSocios
+            // 
+            this.tsbSocios.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbSocios.Image = ((System.Drawing.Image)(resources.GetObject("tsbSocios.Image")));
+            this.tsbSocios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbSocios.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbSocios.Name = "tsbSocios";
+            this.tsbSocios.Size = new System.Drawing.Size(46, 46);
+            this.tsbSocios.Text = "toolStripButton1";
+            this.tsbSocios.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.tsbSocios.ToolTipText = "Gestión de socios";
+            this.tsbSocios.Click += new System.EventHandler(this.tsbSocios_Click);
             // 
             // FrmMenuPrincipal
             // 
@@ -140,8 +169,10 @@ namespace Presentacion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::NatatorioCEF.Properties.Resources._1Q0IeFO;
             this.ClientSize = new System.Drawing.Size(836, 450);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
+            this.IsMdiContainer = true;
             this.MinimizeBox = false;
             this.Name = "FrmMenuPrincipal";
             this.Text = "Natatorio CEF : 2do año TSDS ISP20 -- San Justo - Santa Fe";
@@ -150,6 +181,8 @@ namespace Presentacion
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,6 +201,8 @@ namespace Presentacion
         private System.Windows.Forms.ToolStripMenuItem cobradoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem generaciónDeCuotasToolStripMenuItem;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton tsbSocios;
     }
 }
 

@@ -34,6 +34,7 @@ namespace Presentacion
             //mostramos el formulario usando el método ShowDialog() que lo muestra como Modal, es decir, colocándolo Always on top
             //frmAcercaDe.ShowDialog();
             //si queremos permitir la instanciación múltiple del formulario podemos llamar a el método Show()
+            frmAcercaDe.MdiParent = this;
             frmAcercaDe.Show();
         }
 
@@ -41,19 +42,22 @@ namespace Presentacion
         {
             
             FrmGestionSocios frmGestionSocios = new FrmGestionSocios();
-            frmGestionSocios.ShowDialog();
+            frmGestionSocios.MdiParent=this;    
+            frmGestionSocios.Show();
         }
 
         private void cobradoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmGestionCobradores frmGestionCobradores = new FrmGestionCobradores();
-            frmGestionCobradores.ShowDialog();
+            frmGestionCobradores.MdiParent= this;
+            frmGestionCobradores.Show();
         }
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmGestionUsuarios frmGestionUsuarios = new FrmGestionUsuarios();
-            frmGestionUsuarios.ShowDialog();
+            frmGestionUsuarios.MdiParent = this;
+            frmGestionUsuarios.Show();
         }
 
         private void FrmMenuPrincipal_Activated(object sender, EventArgs e)
@@ -74,7 +78,13 @@ namespace Presentacion
         private void generaciónDeCuotasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmGeneracionCuotas frmGeneracionCuotas = new FrmGeneracionCuotas();
+            frmGeneracionCuotas.MdiParent = this;
             frmGeneracionCuotas.ShowDialog();
+        }
+
+        private void tsbSocios_Click(object sender, EventArgs e)
+        {
+            sociosToolStripMenuItem_Click(sender, e);
         }
     }
 }

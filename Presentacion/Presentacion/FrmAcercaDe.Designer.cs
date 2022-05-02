@@ -147,10 +147,10 @@ namespace Presentacion
             // 
             this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.okButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.okButton.Location = new System.Drawing.Point(405, 286);
+            this.okButton.Location = new System.Drawing.Point(405, 287);
             this.okButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(88, 27);
+            this.okButton.Size = new System.Drawing.Size(88, 26);
             this.okButton.TabIndex = 24;
             this.okButton.Text = "&Aceptar";
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
@@ -169,6 +169,7 @@ namespace Presentacion
             this.Name = "FrmAcercaDe";
             this.Padding = new System.Windows.Forms.Padding(10);
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Acerca de Natatorio CEF";
