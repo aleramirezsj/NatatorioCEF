@@ -1,0 +1,119 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20211012181140_AgregamosDireccionYSocioGarante2.cs" />
+    <Compile Remove="Migrations\20211012181140_AgregamosDireccionYSocioGarante2.Designer.cs" />
+    <Compile Remove="Migrations\20211012182139_AgregamosDireccionYSocioGarante2.cs" />
+    <Compile Remove="Migrations\20211012182139_AgregamosDireccionYSocioGarante2.Designer.cs" />
+    <Compile Remove="Migrations\20211012182628_AgregamosDireccionYSocioGarante2.cs" />
+    <Compile Remove="Migrations\20211012182628_AgregamosDireccionYSocioGarante2.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Imágenes\logoclub.png" />
+    <None Remove="Imágenes\natatorio.jpg" />
+    <None Remove="Reportes\RptListadoDeCobradores.rdlc" />
+    <None Remove="Reportes\RptListadoDeCuotasPeriodo.rdlc" />
+    <None Remove="Reportes\RptListadoDeSocios.rdlc" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Imágenes\logoclub.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Imágenes\natatorio.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RptListadoDeCobradores.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RptListadoDeCuotasPeriodo.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RptListadoDeSocios.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.16" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.16">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.16" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.16">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="ReportViewerCore.NETCore" Version="15.1.14" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="DbNatatorioContextOrigenDeDatos.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DbNatatorioContextOrigenDeDatos.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="Presentacion\FrmResumenDeCuenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Presentacion\FrmGestionUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Presentacion\FrmGestionCobradores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Presentacion\FrmListadoCobradores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Presentacion\FrmListadoCuotas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Presentacion\FrmNuevoEditarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Presentacion\FrmNuevoEditarCobrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Paquetes\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common">
+      <HintPath>Paquetes\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms">
+      <HintPath>Paquetes\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="DbNatatorioContextOrigenDeDatos.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DbNatatorioContextOrigenDeDatos.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>
