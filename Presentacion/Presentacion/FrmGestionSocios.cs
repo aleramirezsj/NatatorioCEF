@@ -28,7 +28,20 @@ namespace Presentacion
         private void ActualizarGrillaFiltrada()
         {
             using DbNatatorioContext db = new DbNatatorioContext();
-            GridSocios.DataSource = db.Socios.Include(s => s.Localidad).Where(s=>s.Apellido.Contains(TxtBusqueda.Text)||s.Nombre.Contains(TxtBusqueda.Text)||s.DNI.ToString().Contains(TxtBusqueda.Text)).ToList();
+            var listaSocios = from socio in db.Socios
+                              join localidad in db.Localidades
+                              on socio.LocalidadId equals localidad.Id
+                              where socio.Nombre.Contains(TxtBusqueda.Text) || socio.Apellido.Contains(TxtBusqueda.Text)
+                    || socio.DNI.ToString().Contains(TxtBusqueda.Text)
+                             select new
+                             {
+                                 Nombre = socio.Nombre,
+                                 Apellido = socio.Apellido,
+                                 Localidad = localidad.Nombre
+                             };
+            
+            GridSocios.DataSource = listaSocios.ToList();
+            //db.Socios.Include(s => s.Localidad).Where(s=>s.Apellido.Contains(TxtBusqueda.Text)||s.Nombre.Contains(TxtBusqueda.Text)||s.DNI.ToString().Contains(TxtBusqueda.Text)).ToList();
         }
 
         private void BtnSalir_Click(object sender, EventArgs e)
