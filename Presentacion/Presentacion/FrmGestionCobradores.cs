@@ -55,14 +55,7 @@ namespace Presentacion
             //si responde que si, instanciamos al objeto dbcontext, y eliminamos el Calendario a través del id que obtuvimos
             if (respuesta == DialogResult.Yes)
             {
-                //instanciamos el objeto que nos permite trabajar con la base de datos
-                using DbNatatorioContext db = new DbNatatorioContext();
-                //buscamos al socio que queremos borrar
-                Cobrador cobrador = db.Cobradores.Find(idSeleccionado);
-                //lo borramos
-                db.Cobradores.Remove(cobrador);
-                //guardamos los cambios(esto es lo que realmente lo borra)
-                db.SaveChanges();
+                _repositoryCobradores.Delete(idSeleccionado);
                 ActualizarGrilla();
             }
         }

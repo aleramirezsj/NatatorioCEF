@@ -19,5 +19,13 @@ namespace NatatorioCEF.AdminData
             using DbNatatorioContext db = new DbNatatorioContext();
             return db.Cobradores.Where(c=>c.Apellido.Contains(busqueda)||c.Nombre.Contains(busqueda)).ToList();
         }
+
+        internal void Delete(int idAEliminar)
+        {
+            using DbNatatorioContext db = new DbNatatorioContext();
+            Cobrador cobradorABorrar = db.Cobradores.Find(idAEliminar);
+            db.Cobradores.Remove(cobradorABorrar);
+            db.SaveChanges();
+        }
     }
 }
