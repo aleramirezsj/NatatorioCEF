@@ -12,6 +12,7 @@ namespace Presentacion.Modelos
         public DbNatatorioContext(DbContextOptions<DbNatatorioContext> options)
             : base(options)
         {
+
         }
 
 
