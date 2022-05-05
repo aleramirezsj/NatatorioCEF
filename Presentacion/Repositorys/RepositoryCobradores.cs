@@ -27,5 +27,14 @@ namespace NatatorioCEF.AdminData
             db.Cobradores.Remove(cobradorABorrar);
             db.SaveChanges();
         }
+
+        internal void Add(Cobrador cobrador)
+        {
+            using DbNatatorioContext db = new DbNatatorioContext();
+
+            db.Cobradores.Add(cobrador);
+
+            db.SaveChanges();
+        }
     }
 }

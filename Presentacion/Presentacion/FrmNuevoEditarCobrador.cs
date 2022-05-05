@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NatatorioCEF.AdminData;
 using Presentacion.Modelos;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,9 @@ namespace Presentacion
 {
     public partial class FrmNuevoEditarCobrador : Form
     {
+        private RepositoryCobradores _repositoryCobradores = new RepositoryCobradores();
+
+
         //atributo que almacen el Id de la entidad que vamos a modificar
         private int idModificado=0;
        //instanciamos un objeto DbContext que nos da acceso a la base de datos
@@ -59,15 +63,17 @@ namespace Presentacion
             if (this.idModificado == 0)
             {
                 //agregamos el socio a la tabla Socios
-                dbNatatorio.Cobradores.Add(cobrador);
+                _repositoryCobradores.Add(cobrador);
             }
             else
             {
                 cobrador.Id = this.idModificado;
                 dbNatatorio.Entry(cobrador).State = EntityState.Modified;
+
+                dbNatatorio.SaveChanges();
             }
             //guardamos los cambios
-            dbNatatorio.SaveChanges();
+            
             Close();
         }
     }
