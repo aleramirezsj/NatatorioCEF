@@ -18,7 +18,8 @@ namespace Presentacion.Modelos
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //optionsBuilder.UseSqlServer(@"Data Source = 192.168.1.100; Initial Catalog = VacunWebContext; User Id = sa; Password = 123; MultipleActiveResultSets = True");
-            optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS; Database=DbNatatorioContext; User Id = sa; Password = 123; MultipleActiveResultSets = True;");
+            optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS; Database=DbNatatorioContext; Integrated Security=True;");
+
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

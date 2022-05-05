@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NatatorioCEF.AdminData;
 using Presentacion.Modelos;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace Presentacion
 {
     public partial class FrmGestionCobradores : Form
     {
+        private RepositoryCobradores _repositoryCobradores = new RepositoryCobradores();
         public FrmGestionCobradores()
         {
             InitializeComponent();
@@ -22,13 +24,12 @@ namespace Presentacion
 
         private void ActualizarGrilla()
         {
-            using DbNatatorioContext db = new DbNatatorioContext();
-            GridLista.DataSource = db.Cobradores.ToList();
+
+            GridLista.DataSource = _repositoryCobradores.GetAll();
         }
         private void ActualizarGrillaFiltrada()
         {
-            using DbNatatorioContext db = new DbNatatorioContext();
-            GridLista.DataSource = db.Cobradores.Where(s=>s.Apellido.Contains(TxtBusqueda.Text)||s.Nombre.Contains(TxtBusqueda.Text)).ToList();
+           GridLista.DataSource = _repositoryCobradores.GetAll(TxtBusqueda.Text);
         }
 
         private void BtnSalir_Click(object sender, EventArgs e)
@@ -54,14 +55,7 @@ namespace Presentacion
             //si responde que si, instanciamos al objeto dbcontext, y eliminamos el Calendario a través del id que obtuvimos
             if (respuesta == DialogResult.Yes)
             {
-                //instanciamos el objeto que nos permite trabajar con la base de datos
-                using DbNatatorioContext db = new DbNatatorioContext();
-                //buscamos al socio que queremos borrar
-                Cobrador cobrador = db.Cobradores.Find(idSeleccionado);
-                //lo borramos
-                db.Cobradores.Remove(cobrador);
-                //guardamos los cambios(esto es lo que realmente lo borra)
-                db.SaveChanges();
+                _repositoryCobradores.Delete(idSeleccionado);
                 ActualizarGrilla();
             }
         }
