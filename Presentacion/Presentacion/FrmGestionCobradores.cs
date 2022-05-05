@@ -29,8 +29,7 @@ namespace Presentacion
         }
         private void ActualizarGrillaFiltrada()
         {
-            using DbNatatorioContext db = new DbNatatorioContext();
-            GridLista.DataSource = db.Cobradores.Where(s=>s.Apellido.Contains(TxtBusqueda.Text)||s.Nombre.Contains(TxtBusqueda.Text)).ToList();
+           GridLista.DataSource = _repositoryCobradores.GetAll(TxtBusqueda.Text);
         }
 
         private void BtnSalir_Click(object sender, EventArgs e)
