@@ -8,7 +8,7 @@ using System.Text;
 
 namespace NatatorioCEF.AdminData
 {
-    internal class RepositoryCobradores
+    public class RepositoryCobradores
     {
 
         DbNatatorioContext db = new DbNatatorioContext();
