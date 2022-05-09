@@ -68,9 +68,8 @@ namespace Presentacion
             else
             {
                 cobrador.Id = this.idModificado;
-                dbNatatorio.Entry(cobrador).State = EntityState.Modified;
-
-                dbNatatorio.SaveChanges();
+                
+                _repositoryCobradores.Update(cobrador);
             }
             //guardamos los cambios
             
