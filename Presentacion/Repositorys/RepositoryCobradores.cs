@@ -10,8 +10,17 @@ namespace NatatorioCEF.AdminData
 {
     public class RepositoryCobradores
     {
+        public DbNatatorioContext db;
 
-        DbNatatorioContext db = new DbNatatorioContext();
+        public RepositoryCobradores(DbNatatorioContext BBDD)
+        {
+            db = BBDD;
+        }
+
+        public RepositoryCobradores()
+        {
+            db = new DbNatatorioContext();
+        }
 
         public IEnumerable<Cobrador> GetAll()
         {
