@@ -2,7 +2,9 @@ using NatatorioCEF.AdminData;
 using NUnit.Framework;
 using Presentacion.Modelos;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace TestProjectNatatorioCEF
 {
@@ -28,5 +30,22 @@ namespace TestProjectNatatorioCEF
             IEnumerable<Cobrador> cobradoresFiltro = _repository.GetAll("josé");
             Assert.AreEqual(cobradoresFiltro.Count(), 1);
         }
+
+        [Test]
+        public void TestAdd()
+        {
+            var _repository = new RepositoryCobradores();
+            var cobrador = new Cobrador()
+            {
+                Nombre = "Cobrador",
+                Apellido = "Testeo"
+            };
+
+            _repository.Add(cobrador);
+            Assert.AreNotEqual(cobrador.Id, 0);
+            _repository.Delete(cobrador.Id);
+
+        }
+
     }
 }
