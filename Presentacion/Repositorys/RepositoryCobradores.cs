@@ -36,5 +36,13 @@ namespace NatatorioCEF.AdminData
 
             db.SaveChanges();
         }
-    }
+
+        internal void Update(Cobrador cobrador)
+        {
+            using DbNatatorioContext db = new DbNatatorioContext();
+            
+            db.Entry(cobrador).State = EntityState.Modified;
+
+            db.SaveChanges();
+        }
 }
