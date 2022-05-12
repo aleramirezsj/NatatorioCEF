@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NatatorioCEF.AdminData;
 using Presentacion.Modelos;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,8 @@ namespace Presentacion
 {
     public partial class FrmNuevoEditarSocio : Form
     {
+        RepositorySocios _repositorySocios = new RepositorySocios();
+
         //atributo que almacen el Id del socio que vamos a modificar
         private int idSocioModificado=0;
        //instanciamos un objeto DbContext que nos da acceso a la base de datos
@@ -30,9 +33,8 @@ namespace Presentacion
         {
             InitializeComponent();
             this.idSocioModificado = idSeleccionado;
-            using DbNatatorioContext db = new DbNatatorioContext();
-            //obtenemos el Socio a través de el ID recibido
-            Socio socio = db.Socios.Find(idSeleccionado);
+
+            Socio socio = (Socio)_repositorySocios.GetById(idSeleccionado);
             //colocamos en la pantalla los datos del socio recibido
             TxtApellido.Text = socio.Apellido;
             TxtNombre.Text = socio.Nombre;
@@ -111,15 +113,13 @@ namespace Presentacion
             if (this.idSocioModificado == 0)
             {
                 //agregamos el socio a la tabla Socios
-                dbNatatorio.Socios.Add(socio);
+                _repositorySocios.Add(socio);
             }
             else
             {
                 socio.Id = this.idSocioModificado;
-                dbNatatorio.Entry(socio).State = EntityState.Modified;
+                _repositorySocios.Update(socio);
             }
-            //guardamos los cambios
-            dbNatatorio.SaveChanges();
             Close();
         }
     }

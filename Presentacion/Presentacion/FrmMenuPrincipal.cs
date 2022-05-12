@@ -34,7 +34,7 @@ namespace Presentacion
             //mostramos el formulario usando el método ShowDialog() que lo muestra como Modal, es decir, colocándolo Always on top
             //frmAcercaDe.ShowDialog();
             //si queremos permitir la instanciación múltiple del formulario podemos llamar a el método Show()
-            frmAcercaDe.MdiParent = this;
+            //frmAcercaDe.MdiParent = this;
             frmAcercaDe.Show();
         }
 
@@ -42,7 +42,7 @@ namespace Presentacion
         {
             
             FrmGestionSocios frmGestionSocios = new FrmGestionSocios();
-            frmGestionSocios.MdiParent=this;    
+            //frmGestionSocios.MdiParent=this;    
             frmGestionSocios.Show();
         }
 
@@ -56,7 +56,7 @@ namespace Presentacion
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmGestionUsuarios frmGestionUsuarios = new FrmGestionUsuarios();
-            frmGestionUsuarios.MdiParent = this;
+            //frmGestionUsuarios.MdiParent = this;
             frmGestionUsuarios.Show();
         }
 
@@ -78,13 +78,75 @@ namespace Presentacion
         private void generaciónDeCuotasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmGeneracionCuotas frmGeneracionCuotas = new FrmGeneracionCuotas();
-            frmGeneracionCuotas.MdiParent = this;
-            frmGeneracionCuotas.ShowDialog();
+            //frmGeneracionCuotas.MdiParent = this;
+            frmGeneracionCuotas.Show();
         }
 
         private void tsbSocios_Click(object sender, EventArgs e)
         {
             sociosToolStripMenuItem_Click(sender, e);
+        }
+
+        private void cobradoresToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            cobradoresToolStripMenuItem_Click(sender, e);
+        }
+
+        private void cargarUnNuevoCobradorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frmNuevoEditarCobrador= new FrmNuevoEditarCobrador();
+            //frmNuevoEditarCobrador.MdiParent = this;
+            frmNuevoEditarCobrador.Show();
+        }
+
+        private void toolStripComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if ((ModosVisualesEnum)tscbEstiloVisual.ComboBox.SelectedValue==ModosVisualesEnum.Modo_Oscuro)
+            {
+                AplicarModoOscuro();
+            }
+            else
+            {
+                AplicarModoClaro();
+            }
+        }
+
+        private void AplicarModoClaro()
+        {
+            mnuMenuPrincipal.BackColor = default(Color);
+            tspBarraDeHerramientas.BackColor = default(Color);
+        }
+
+        private void AplicarModoOscuro()
+        {
+            mnuMenuPrincipal.BackColor = Color.DarkGray;
+            tspBarraDeHerramientas.BackColor = Color.DarkGray;
+        }
+
+        private void FrmMenuPrincipal_Load(object sender, EventArgs e)
+        {
+            CargarCboEstiloVisual();
+        }
+
+        private void CargarCboEstiloVisual()
+        {
+            tscbEstiloVisual.ComboBox.DataSource = Enum.GetValues(typeof(ModosVisualesEnum));
+        }
+
+        private void modoOscuroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AplicarModoOscuro();
+        }
+
+        private void modoClaroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AplicarModoClaro();
+        }
+
+        private void FrmMenuPrincipal_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+                mnuModosVisuales.Show(MousePosition);
         }
     }
 }

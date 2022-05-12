@@ -32,9 +32,8 @@ namespace Presentacion
         {
             InitializeComponent();
             this.idModificado = idSeleccionado;
-            using DbNatatorioContext db = new DbNatatorioContext();
-            //obtenemos el Socio a través de el ID recibido
-            Cobrador cobrador = db.Cobradores.Find(idSeleccionado);
+            
+            Cobrador cobrador = (Cobrador)_repositoryCobradores.GetById(idSeleccionado);
             //colocamos en la pantalla los datos del socio recibido
             TxtApellido.Text = cobrador.Apellido;
             TxtNombre.Text = cobrador.Nombre;

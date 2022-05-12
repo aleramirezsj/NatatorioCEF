@@ -101,7 +101,7 @@ namespace Presentacion
             this.Controls.Add(this.LblApellido);
             this.Controls.Add(this.LblNombre);
             this.Name = "FrmNuevoEditarCobrador";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nuevo/editar cobrador";
             this.ResumeLayout(false);
             this.PerformLayout();
