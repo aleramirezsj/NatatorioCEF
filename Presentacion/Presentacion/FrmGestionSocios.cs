@@ -14,7 +14,7 @@ namespace Presentacion
 {
     public partial class FrmGestionSocios : Form
     {
-        RepositorySocios _repositorySocios = new RepositorySocios();
+        RepositorySocios _repositorySocios = new RepositorySocios(new DbNatatorioContext());
         public FrmGestionSocios()
         {
             InitializeComponent();
@@ -39,7 +39,7 @@ namespace Presentacion
 
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
-            FrmNuevoEditarSocio frmNuevoEditarSocio = new FrmNuevoEditarSocio();
+            FrmNuevoEditarSocio frmNuevoEditarSocio = new FrmNuevoEditarSocio(_repositorySocios);
             frmNuevoEditarSocio.ShowDialog();
             //actualizamos la grilla para que se vea el nuevo socio agregado
             ActualizarGrilla();
@@ -65,7 +65,7 @@ namespace Presentacion
             //obtenemos el ID del socio seleccionado actualmente en la grilla
             var idSeleccionado = Convert.ToInt32(GridSocios.CurrentRow.Cells[0].Value);
             //llamamos al formulario FrmNuevoEditarSocio pasándole por parámetro el IdSeleccionado
-            FrmNuevoEditarSocio frmNuevoEditarSocio = new FrmNuevoEditarSocio(idSeleccionado);
+            FrmNuevoEditarSocio frmNuevoEditarSocio = new FrmNuevoEditarSocio(idSeleccionado,_repositorySocios);
             frmNuevoEditarSocio.ShowDialog();
             ActualizarGrilla();
         }

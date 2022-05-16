@@ -14,24 +14,26 @@ namespace Presentacion
 {
     public partial class FrmNuevoEditarSocio : Form
     {
-        RepositorySocios _repositorySocios = new RepositorySocios();
+        RepositorySocios _repositorySocios;
+        DbNatatorioContext dbNatatorio = new DbNatatorioContext();
 
         //atributo que almacen el Id del socio que vamos a modificar
         private int idSocioModificado=0;
-       //instanciamos un objeto DbContext que nos da acceso a la base de datos
-       DbNatatorioContext dbNatatorio = new DbNatatorioContext();
+
 
         //constructor vacío que se ejecuta cuando creamos un nuevo socio
-        public FrmNuevoEditarSocio()
+        public FrmNuevoEditarSocio(RepositorySocios repository)
             {
                 InitializeComponent();
+                _repositorySocios = repository;
                 CargarComboSocioGarante();
                 CargarComboLocalidades();
             }
             //constructor que se ejecuta cuando modificamos un socio
-        public FrmNuevoEditarSocio(int idSeleccionado)
+        public FrmNuevoEditarSocio(int idSeleccionado, RepositorySocios repository)
         {
             InitializeComponent();
+            _repositorySocios= repository;
             this.idSocioModificado = idSeleccionado;
 
             Socio socio = (Socio)_repositorySocios.GetById(idSeleccionado);
@@ -47,6 +49,7 @@ namespace Presentacion
 
         private void CargarComboSocioGarante(int? socioGaranteId=0)
         {
+            
             IEnumerable<Socio> listaSocios = from socio in dbNatatorio.Socios
                                              select new Socio { Id = socio.Id, Nombre = socio.Apellido + " " + socio.Nombre };
             //cargamos el listado de socios en el combobox

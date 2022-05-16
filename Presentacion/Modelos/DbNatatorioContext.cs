@@ -3,15 +3,24 @@ using NatatorioCEF.Modelos;
 using NatatorioCEF.Utils;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace Presentacion.Modelos
 {
     public class DbNatatorioContext: DbContext
     {
+        static int cantidadInstancias=0;
         public DbNatatorioContext(DbContextOptions<DbNatatorioContext> options)
             : base(options)
         {
+            cantidadInstancias++;
+            Debug.Print(">>>>>>>>>>>>>>> CREANDO INSTANCIAS DEL DBCONTEXT=" + cantidadInstancias);
+        }
+        private void Destroy()
+        {
+            cantidadInstancias--;
+            Debug.Print(">>>>>>>>>>>>>>> ELIMINANDO INSTANCIAS DEL DBCONTEXT=" + cantidadInstancias);
 
         }
 
@@ -67,6 +76,8 @@ namespace Presentacion.Modelos
 
         public DbNatatorioContext()
         {
+            cantidadInstancias++;
+            Debug.Print(">>>>>>>>>>>>>>> CREANDO INSTANCIAS DEL DBCONTEXT=" + cantidadInstancias);
         }
     }
 }
