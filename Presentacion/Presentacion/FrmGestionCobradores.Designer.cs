@@ -170,7 +170,7 @@ namespace Presentacion
             this.Controls.Add(this.GridLista);
             this.Controls.Add(this.panel1);
             this.Name = "FrmGestionCobradores";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cobradores";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

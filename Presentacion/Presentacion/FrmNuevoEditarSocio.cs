@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NatatorioCEF.AdminData;
 using Presentacion.Modelos;
 using System;
 using System.Collections.Generic;
@@ -13,26 +14,29 @@ namespace Presentacion
 {
     public partial class FrmNuevoEditarSocio : Form
     {
+        RepositorySocios _repositorySocios;
+        DbNatatorioContext dbNatatorio = new DbNatatorioContext();
+
         //atributo que almacen el Id del socio que vamos a modificar
         private int idSocioModificado=0;
-       //instanciamos un objeto DbContext que nos da acceso a la base de datos
-       DbNatatorioContext dbNatatorio = new DbNatatorioContext();
+
 
         //constructor vacío que se ejecuta cuando creamos un nuevo socio
-        public FrmNuevoEditarSocio()
+        public FrmNuevoEditarSocio(RepositorySocios repository)
             {
                 InitializeComponent();
+                _repositorySocios = repository;
                 CargarComboSocioGarante();
                 CargarComboLocalidades();
             }
             //constructor que se ejecuta cuando modificamos un socio
-        public FrmNuevoEditarSocio(int idSeleccionado)
+        public FrmNuevoEditarSocio(int idSeleccionado, RepositorySocios repository)
         {
             InitializeComponent();
+            _repositorySocios= repository;
             this.idSocioModificado = idSeleccionado;
-            using DbNatatorioContext db = new DbNatatorioContext();
-            //obtenemos el Socio a través de el ID recibido
-            Socio socio = db.Socios.Find(idSeleccionado);
+
+            Socio socio = (Socio)_repositorySocios.GetById(idSeleccionado);
             //colocamos en la pantalla los datos del socio recibido
             TxtApellido.Text = socio.Apellido;
             TxtNombre.Text = socio.Nombre;
@@ -45,6 +49,7 @@ namespace Presentacion
 
         private void CargarComboSocioGarante(int? socioGaranteId=0)
         {
+            
             IEnumerable<Socio> listaSocios = from socio in dbNatatorio.Socios
                                              select new Socio { Id = socio.Id, Nombre = socio.Apellido + " " + socio.Nombre };
             //cargamos el listado de socios en el combobox
@@ -111,15 +116,13 @@ namespace Presentacion
             if (this.idSocioModificado == 0)
             {
                 //agregamos el socio a la tabla Socios
-                dbNatatorio.Socios.Add(socio);
+                _repositorySocios.Add(socio);
             }
             else
             {
                 socio.Id = this.idSocioModificado;
-                dbNatatorio.Entry(socio).State = EntityState.Modified;
+                _repositorySocios.Update(socio);
             }
-            //guardamos los cambios
-            dbNatatorio.SaveChanges();
             Close();
         }
     }

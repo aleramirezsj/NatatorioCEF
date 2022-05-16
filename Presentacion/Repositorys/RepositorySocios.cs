@@ -8,58 +8,54 @@ using System.Text;
 
 namespace NatatorioCEF.AdminData
 {
-    public class RepositoryCobradores : IRepository
+    public class RepositorySocios : IRepository
     {
         public DbNatatorioContext db;
 
-        public RepositoryCobradores(DbNatatorioContext BBDD)
+        public RepositorySocios(DbNatatorioContext BBDD)
         {
             db = BBDD;
         }
 
-        public RepositoryCobradores()
-        {
-            db = new DbNatatorioContext();
-        }
 
         public IEnumerable<object> GetAll()
         {
             using var db = new DbNatatorioContext();
-            return db.Cobradores.ToList();
+            return db.Socios.Include(s=>s.Localidad).ToList();
         }
         public IEnumerable<object> GetAll(string busqueda)
         {
             using var db = new DbNatatorioContext();
-            return db.Cobradores.Where(c => c.Apellido.Contains(busqueda) || c.Nombre.Contains(busqueda)).ToList();
+            return db.Socios.Where(c => c.Apellido.Contains(busqueda) || c.Nombre.Contains(busqueda) || c.DNI.ToString().Contains(busqueda)).Include(s=>s.Localidad).ToList();
         }
 
         public void Delete(int idAEliminar)
         {
-            using var db= new DbNatatorioContext();
-            Cobrador cobradorABorrar = db.Cobradores.Find(idAEliminar);
-            db.Cobradores.Remove(cobradorABorrar);
+            using var db = new DbNatatorioContext();
+            Socio socioABorrar = db.Socios.Find(idAEliminar);
+            db.Socios.Remove(socioABorrar);
             db.SaveChanges();
         }
 
-        public void Add(object cobrador)
+        public void Add(object socio)
         {
             using var db = new DbNatatorioContext();
-            db.Cobradores.Add((Cobrador)cobrador);
+            db.Socios.Add((Socio)socio);
             db.SaveChanges();
         }
 
-        public void Update(object cobrador)
+        public void Update(object socio)
         {
             using var db = new DbNatatorioContext();
-            db.Entry((Cobrador)cobrador).State = EntityState.Modified;
+            db.Entry((Socio)socio).State = EntityState.Modified;
             db.SaveChanges();
         }
 
         public object GetById(int id)
         {
             using var db = new DbNatatorioContext();
-            var cobrador =db.Cobradores.Find(id);
-            return cobrador;
+            var socio = db.Socios.Include(s=>s.Localidad).FirstOrDefault(s=>s.Id==id);
+            return socio;
         }
     }
 }
