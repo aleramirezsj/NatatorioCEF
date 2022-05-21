@@ -8,7 +8,7 @@ using System.Text;
 
 namespace NatatorioCEF.AdminData
 {
-    public class RepositoryCobradores
+    public class RepositoryCobradores : IRepository
     {
         public DbNatatorioContext db;
 
@@ -22,11 +22,11 @@ namespace NatatorioCEF.AdminData
             db = new DbNatatorioContext();
         }
 
-        public IEnumerable<Cobrador> GetAll()
+        public IEnumerable<object> GetAll()
         {
             return db.Cobradores.ToList();
         }
-        public IEnumerable<Cobrador> GetAll(string busqueda)
+        public IEnumerable<object> GetAll(string busqueda)
         {
             return db.Cobradores.Where(c => c.Apellido.Contains(busqueda) || c.Nombre.Contains(busqueda)).ToList();
         }
@@ -38,16 +38,22 @@ namespace NatatorioCEF.AdminData
             db.SaveChanges();
         }
 
-        public void Add(Cobrador cobrador)
+        public void Add(object cobrador)
         {
-            db.Cobradores.Add(cobrador);
+            db.Cobradores.Add((Cobrador)cobrador);
             db.SaveChanges();
         }
 
-        public void Update(Cobrador cobrador)
+        public void Update(object cobrador)
         {
-            db.Entry(cobrador).State = EntityState.Modified;
+            db.Entry((Cobrador)cobrador).State = EntityState.Modified;
             db.SaveChanges();
+        }
+
+        public object GetById(int id)
+        {
+            var cobrador = db.Cobradores.Find(id);
+            return cobrador;
         }
     }
 }

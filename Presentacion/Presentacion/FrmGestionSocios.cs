@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NatatorioCEF.AdminData;
 using Presentacion.Modelos;
 using System;
 using System.Collections.Generic;
@@ -13,34 +14,36 @@ namespace Presentacion
 {
     public partial class FrmGestionSocios : Form
     {
+        private RepositorySocios _repositorySocios;
+
+        DbNatatorioContext dbNatatorio = new DbNatatorioContext();
         public FrmGestionSocios()
         {
             InitializeComponent();
             ActualizarGrilla();
-
+            _repositorySocios
         }
 
         private void ActualizarGrilla()
         {
-            using DbNatatorioContext db = new DbNatatorioContext();
-            GridSocios.DataSource = db.Socios.Include(s=>s.Localidad).ToList();
+            GridSocios.DataSource = _repositorySocios.GetAll();
         }
         private void ActualizarGrillaFiltrada()
         {
-            using DbNatatorioContext db = new DbNatatorioContext();
-            var listaSocios = from socio in db.Socios
-                              join localidad in db.Localidades
-                              on socio.LocalidadId equals localidad.Id
-                              where socio.Nombre.Contains(TxtBusqueda.Text) || socio.Apellido.Contains(TxtBusqueda.Text)
-                    || socio.DNI.ToString().Contains(TxtBusqueda.Text)
-                             select new
-                             {
-                                 Nombre = socio.Nombre,
-                                 Apellido = socio.Apellido,
-                                 Localidad = localidad.Nombre
-                             };
+            //using DbNatatorioContext db = new DbNatatorioContext();
+            //var listaSocios = from socio in db.Socios
+            //                  join localidad in db.Localidades
+            //                  on socio.LocalidadId equals localidad.Id
+            //                  where socio.Nombre.Contains(TxtBusqueda.Text) || socio.Apellido.Contains(TxtBusqueda.Text)
+            //        || socio.DNI.ToString().Contains(TxtBusqueda.Text)
+            //                 select new
+            //                 {
+            //                     Nombre = socio.Nombre,
+            //                     Apellido = socio.Apellido,
+            //                     Localidad = localidad.Nombre
+            //                 };
             
-            GridSocios.DataSource = listaSocios.ToList();
+            GridSocios.DataSource = _repositorySocios.GetAll(TxtBusqueda.Text);
             //db.Socios.Include(s => s.Localidad).Where(s=>s.Apellido.Contains(TxtBusqueda.Text)||s.Nombre.Contains(TxtBusqueda.Text)||s.DNI.ToString().Contains(TxtBusqueda.Text)).ToList();
         }
 
@@ -109,6 +112,11 @@ namespace Presentacion
                 GridSocios.Columns["SocioGaranteId"].Visible = false;
             if (GridSocios.Columns["LocalidadId"] != null)
                 GridSocios.Columns["LocalidadId"].Visible = false;
+        }
+
+        private void FrmGestionSocios_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

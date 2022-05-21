@@ -170,6 +170,7 @@ namespace Presentacion
             this.Name = "FrmGestionSocios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Socios";
+            this.Load += new System.EventHandler(this.FrmGestionSocios_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbxImagenSocios)).EndInit();

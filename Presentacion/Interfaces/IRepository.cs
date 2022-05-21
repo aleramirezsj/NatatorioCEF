@@ -4,13 +4,13 @@ using System.Text;
 
 namespace NatatorioCEF.Interfaces
 {
-    internal interface IRepository<TEntity> where TEntity : class
+    internal interface IRepository
     {
-        void Add(TEntity obj);
-        TEntity GetById(int id);
-        IEnumerable<TEntity> GetAll();
-        void Update(TEntity obj);
-        void Remove(TEntity obj);
-        void Dispose();
+        void Add(object obj);
+        object GetById(int id);
+        IEnumerable<object> GetAll();
+        void Update(object obj);
+        void Delete(int obj);
+        //void Dispose();
     }
 }
