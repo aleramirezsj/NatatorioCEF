@@ -16,6 +16,10 @@ namespace NatatorioCEF.AdminData
         {
             db = BBDD;
         }
+        public RepositorySocios()
+        {
+            db = new DbNatatorioContext();
+        }
 
 
         public IEnumerable<object> GetAll()
