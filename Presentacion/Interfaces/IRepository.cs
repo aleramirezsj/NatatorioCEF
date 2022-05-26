@@ -4,7 +4,7 @@ using System.Text;
 
 namespace NatatorioCEF.Interfaces
 {
-    public interface IRepository
+    internal interface IRepository
     {
         void Add(object obj);
         object GetById(int id);

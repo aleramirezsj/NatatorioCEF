@@ -77,7 +77,7 @@ namespace Presentacion
 
         private void generaciónDeCuotasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmCobranzaDeCuotasInyDependencias frmGeneracionCuotas = new FrmCobranzaDeCuotasInyDependencias();
+            FrmGeneracionCuotas frmGeneracionCuotas = new FrmGeneracionCuotas();
             //frmGeneracionCuotas.MdiParent = this;
             frmGeneracionCuotas.Show();
         }
