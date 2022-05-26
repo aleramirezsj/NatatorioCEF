@@ -43,6 +43,8 @@
             this.TxtBusqueda.Name = "TxtBusqueda";
             this.TxtBusqueda.Size = new System.Drawing.Size(295, 29);
             this.TxtBusqueda.TabIndex = 0;
+            this.TxtBusqueda.TextChanged += new System.EventHandler(this.TxtBusqueda_TextChanged);
+            this.TxtBusqueda.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtBusqueda_KeyDown);
             // 
             // GridGeneric
             // 
@@ -50,8 +52,11 @@
             this.GridGeneric.Location = new System.Drawing.Point(12, 94);
             this.GridGeneric.Name = "GridGeneric";
             this.GridGeneric.RowTemplate.Height = 25;
+            this.GridGeneric.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GridGeneric.Size = new System.Drawing.Size(416, 344);
             this.GridGeneric.TabIndex = 1;
+            this.GridGeneric.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridGeneric_CellDoubleClick);
+            this.GridGeneric.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GridGeneric_KeyDown);
             // 
             // BtnSeleccionar
             // 

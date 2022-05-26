@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using ExtensionMethods;
 
 namespace NatatorioCEF.Presentacion
 {
@@ -68,7 +69,8 @@ namespace NatatorioCEF.Presentacion
         private void BtnRegistraPago_Click(object sender, EventArgs e)
         {
             //Obtener el ID de la cuota seleccionada en la grilla de cuotas
-            int idCuotaSeleccionada = (int)GridCuotasAdeudadas.CurrentRow.Cells[0].Value;
+            //int idCuotaSeleccionada = (int)GridCuotasAdeudadas.CurrentRow.Cells[0].Value;
+            int idCuotaSeleccionada = GridCuotasAdeudadas.IdSeleccionado();
             //Buscamos esa cuota con el método Find en el DbSet de cuotas, obteniendo un objeto del tipo Cuota.
             Cuota cuota = db.Cuotas.Find(idCuotaSeleccionada);
             //Definimos en la cuota obtenida la Fecha de Pago, Cobrador y el monto Cobrado(que teniendo en cuenta la fecha actual aplica o no el recargo, analizando si ya pasó la fecha de vencimiento)
@@ -84,7 +86,8 @@ namespace NatatorioCEF.Presentacion
         private void BtnAnularPago_Click(object sender, EventArgs e)
         {
             //Obtener el ID de la cuota seleccionada en la grilla de cuotas
-            int idCuotaSeleccionada = (int)GridCuotasPagas.CurrentRow.Cells[0].Value;
+            //int idCuotaSeleccionada = (int)GridCuotasPagas.CurrentRow.Cells[0].Value;
+            int idCuotaSeleccionada = GridCuotasPagas.IdSeleccionado();
             //Buscamos esa cuota con el método Find en el DbSet de cuotas, obteniendo un objeto del tipo Cuota.
             Cuota cuota = db.Cuotas.Find(idCuotaSeleccionada);
             //blanqueamos los campos registrados en el pago
@@ -113,16 +116,16 @@ namespace NatatorioCEF.Presentacion
         {
             FrmBúsqueda frmBúsqueda = new FrmBúsqueda(new RepositorySocios(), "Socios");
             frmBúsqueda.ShowDialog();
-            
-            socioSeleccionado = (Socio)repositorySocios.GetById(frmBúsqueda.idSeleccionado);
-            TxtSocioBuscado.Text = socioSeleccionado.NombreCompleto;
+
+            socioSeleccionado = (Socio)frmBúsqueda.entidadSeleccionada;
+            TxtSocioBuscado.Text = socioSeleccionado!=null?socioSeleccionado.NombreCompleto:"";
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             FrmBúsqueda frmBúsqueda = new FrmBúsqueda(new RepositoryCobradores(), "Cobradores");
             frmBúsqueda.ShowDialog();
-            cobradorSeleccionado = (Cobrador)repositoryCobradores.GetById(frmBúsqueda.idSeleccionado);
+            cobradorSeleccionado = (Cobrador)frmBúsqueda.entidadSeleccionada;
             TxtCobradorBuscado.Text = cobradorSeleccionado.NombreCompleto;
 
         }
