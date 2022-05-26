@@ -52,7 +52,7 @@ namespace ExtensionMethods
 
 
 
-        public static void OcultarColumnas(this DataGridView grid, Form form, string[] columnasAOcultar)
+        public static void OcultarColumnas(this DataGridView grid, string[] columnasAOcultar)
         {
             //form.EstaVisible() &&
             if (grid.RowCount > 0)

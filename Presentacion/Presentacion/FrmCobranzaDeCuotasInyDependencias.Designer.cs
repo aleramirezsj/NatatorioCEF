@@ -42,9 +42,9 @@ namespace NatatorioCEF.Presentacion
             this.label4 = new System.Windows.Forms.Label();
             this.GridCuotasPagas = new System.Windows.Forms.DataGridView();
             this.BtnAnularPago = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BtnBuscarSocio = new System.Windows.Forms.Button();
             this.TxtCobradorBuscado = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.BtnBuscarCobrador = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbxImagenSocios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GridCuotasAdeudadas)).BeginInit();
@@ -185,15 +185,15 @@ namespace NatatorioCEF.Presentacion
             this.BtnAnularPago.UseVisualStyleBackColor = true;
             this.BtnAnularPago.Click += new System.EventHandler(this.BtnAnularPago_Click);
             // 
-            // button1
+            // BtnBuscarSocio
             // 
-            this.button1.Location = new System.Drawing.Point(57, 114);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.BtnBuscarSocio.Location = new System.Drawing.Point(57, 114);
+            this.BtnBuscarSocio.Name = "BtnBuscarSocio";
+            this.BtnBuscarSocio.Size = new System.Drawing.Size(75, 23);
+            this.BtnBuscarSocio.TabIndex = 16;
+            this.BtnBuscarSocio.Text = "Buscar";
+            this.BtnBuscarSocio.UseVisualStyleBackColor = true;
+            this.BtnBuscarSocio.Click += new System.EventHandler(this.BtnBuscarSocio_Click);
             // 
             // TxtCobradorBuscado
             // 
@@ -203,24 +203,24 @@ namespace NatatorioCEF.Presentacion
             this.TxtCobradorBuscado.Size = new System.Drawing.Size(190, 23);
             this.TxtCobradorBuscado.TabIndex = 17;
             // 
-            // button2
+            // BtnBuscarCobrador
             // 
-            this.button2.Location = new System.Drawing.Point(838, 147);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "Buscar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.BtnBuscarCobrador.Location = new System.Drawing.Point(838, 147);
+            this.BtnBuscarCobrador.Name = "BtnBuscarCobrador";
+            this.BtnBuscarCobrador.Size = new System.Drawing.Size(75, 23);
+            this.BtnBuscarCobrador.TabIndex = 18;
+            this.BtnBuscarCobrador.Text = "Buscar";
+            this.BtnBuscarCobrador.UseVisualStyleBackColor = true;
+            this.BtnBuscarCobrador.Click += new System.EventHandler(this.BtnBuscarCobrador_Click);
             // 
             // FrmCobranzaDeCuotasInyDependencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(941, 450);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.BtnBuscarCobrador);
             this.Controls.Add(this.TxtCobradorBuscado);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BtnBuscarSocio);
             this.Controls.Add(this.BtnAnularPago);
             this.Controls.Add(this.GridCuotasPagas);
             this.Controls.Add(this.label4);
@@ -259,8 +259,8 @@ namespace NatatorioCEF.Presentacion
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView GridCuotasPagas;
         private System.Windows.Forms.Button BtnAnularPago;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnBuscarSocio;
         private System.Windows.Forms.TextBox TxtCobradorBuscado;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button BtnBuscarCobrador;
     }
 }

@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using ExtensionMethods;
+using NatatorioCEF.Repositorys;
 
 namespace NatatorioCEF.Presentacion
 {
@@ -20,7 +21,7 @@ namespace NatatorioCEF.Presentacion
         Socio socioSeleccionado;
         Cobrador cobradorSeleccionado;
         RepositorySocios repositorySocios = new RepositorySocios();
-
+        RepositoryCuotas repositoryCuotas = new RepositoryCuotas();
         RepositoryCobradores repositoryCobradores = new RepositoryCobradores();
 
         public FrmCobranzaDeCuotasInyDependencias()
@@ -37,20 +38,21 @@ namespace NatatorioCEF.Presentacion
 
         private void ListarCuotasSocio()
         {
-            BtnAnularPago.Enabled = false;
-            BtnRegistraPago.Enabled = false;
-            var listaCuotasAdeudadas = from cuota in db.Cuotas
-                              join socio in db.Socios
-                              on cuota.SocioId equals socio.Id
-                              where cuota.SocioId == socioSeleccionado.Id && cuota.FechaPago==null
-                              select new { Id = cuota.Id, Año=cuota.Año, Mes=cuota.Mes, Importe = cuota.Importe };
-            GridCuotasAdeudadas.DataSource = listaCuotasAdeudadas.ToList();
-            var listaCuotasPagas = from cuota in db.Cuotas
-                                       join socio in db.Socios
-                                       on cuota.SocioId equals socio.Id
-                                       where cuota.SocioId == socioSeleccionado.Id && cuota.FechaPago != null
-                                       select new { Id = cuota.Id, Año = cuota.Año, Mes = cuota.Mes, Cobrado = cuota.Cobrado, FechaPago=cuota.FechaPago };
-            GridCuotasPagas.DataSource = listaCuotasPagas.ToList();
+
+            if (socioSeleccionado != null)
+            {
+                BtnAnularPago.Enabled = false;
+                BtnRegistraPago.Enabled = false;
+
+                GridCuotasAdeudadas.DataSource = repositoryCuotas.ObtenerCuotasAdeudadas(socioSeleccionado.Id);
+
+                GridCuotasPagas.DataSource = repositoryCuotas.ObtenerCuotasPagadas(socioSeleccionado.Id);
+            }
+            else
+            {
+                GridCuotasAdeudadas.DataSource = null;
+                GridCuotasPagas.DataSource = null;
+            }
         }
 
         private void GridCuotas_CellEnter(object sender, DataGridViewCellEventArgs e)
@@ -112,21 +114,28 @@ namespace NatatorioCEF.Presentacion
                 GridCuotasPagas.Columns["Cobrado"].Width = 60;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void BtnBuscarSocio_Click(object sender, EventArgs e)
         {
             FrmBúsqueda frmBúsqueda = new FrmBúsqueda(new RepositorySocios(), "Socios");
             frmBúsqueda.ShowDialog();
-
             socioSeleccionado = (Socio)frmBúsqueda.entidadSeleccionada;
-            TxtSocioBuscado.Text = socioSeleccionado!=null?socioSeleccionado.NombreCompleto:"";
+            if (socioSeleccionado != null)
+            {
+                TxtSocioBuscado.Text = socioSeleccionado.NombreCompleto;
+            }
+            else
+            {
+                TxtSocioBuscado.Text = "";
+            }
+            ListarCuotasSocio();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void BtnBuscarCobrador_Click(object sender, EventArgs e)
         {
             FrmBúsqueda frmBúsqueda = new FrmBúsqueda(new RepositoryCobradores(), "Cobradores");
             frmBúsqueda.ShowDialog();
             cobradorSeleccionado = (Cobrador)frmBúsqueda.entidadSeleccionada;
-            TxtCobradorBuscado.Text = cobradorSeleccionado.NombreCompleto;
+            TxtCobradorBuscado.Text = cobradorSeleccionado != null?cobradorSeleccionado.NombreCompleto:"";
 
         }
     }
