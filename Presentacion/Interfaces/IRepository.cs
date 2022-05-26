@@ -9,6 +9,7 @@ namespace NatatorioCEF.Interfaces
         void Add(object obj);
         object GetById(int id);
         IEnumerable<object> GetAll();
+        IEnumerable<object> GetAll(string text);
         void Update(object obj);
         void Delete(int id);
     }
