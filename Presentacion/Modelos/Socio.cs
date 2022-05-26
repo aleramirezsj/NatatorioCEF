@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace Presentacion.Modelos
@@ -24,6 +25,12 @@ namespace Presentacion.Modelos
         public override string ToString()
         {
             return Apellido+" "+Nombre;
+        }
+
+        [NotMapped]
+        public string NombreCompleto
+        {
+            get { return Nombre + " " + Apellido; }
         }
     }
 }
